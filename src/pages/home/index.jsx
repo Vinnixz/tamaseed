@@ -5,11 +5,17 @@ export default function Home() {
     <Css.Container>
       <Css.Textao>Bem vindo Florzinha</Css.Textao>
       <Css.Form>
-        <input type="text" placeholder="Digite seu nome"></input>
-        <input type="email" placeholder="Digite seu email"></input>
-        <input type="password" placeholder="Digite sua senha"></input>
-        <input type="password" placeholder="Digite sua senha"></input>
-      </Css.Form>
+      <Css.FormComponent>
+          <input type="email" placeholder="Digite seu email"></input>
+          <input type="password" placeholder="Digite sua senha"></input>
+      </Css.FormComponent>
+          <Css.Login>
+            <Css.LoginButton>Login</Css.LoginButton>
+            <p>
+              Não tem login?<b>Registre-se</b>
+            </p>
+          </Css.Login>
+        </Css.Form>
     </Css.Container>
   );
 }
