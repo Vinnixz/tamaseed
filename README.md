@@ -6,7 +6,7 @@ Trabalho da faculdade. App para te lembrar e ajudar a cuidar das suas plantas.<b
 ### `Quem baixou o git agora`
 
 Rode esse comando "git config --global user.name "Fulano de Tal"" e em seguida 
-"$ git config --global user.email fulanodetal@exemplo.br"
+"git config --global user.email fulanodetal@exemplo.br"
 
 ### `git clone`
 
