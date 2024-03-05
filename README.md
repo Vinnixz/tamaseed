@@ -13,7 +13,7 @@ Rode esse comando no terminal (para abrir o terminal no vscode aperte ctrl+j)
 
 Para clonar o repositório no seu computador ```git clone https://github.com/Vinnixz/tamaseed.git```
 
-### `cd florzinha`
+### `cd tamagoseed`
 
 Para entrar na pasta do projeto
 
