@@ -5,16 +5,18 @@ export default function Home() {
     <Css.Container>
       <Css.Textao>Bem vindo Florzinha</Css.Textao>
       <Css.Form>
-      <Css.FormComponent>
-          <input type="email" placeholder="Digite seu email"></input>
-          <input type="password" placeholder="Digite sua senha"></input>
-      </Css.FormComponent>
-          <Css.Login>
-            <Css.LoginButton>Login</Css.LoginButton>
-            <p>
-              Não tem login?<b>Registre-se</b>
-            </p>
-          </Css.Login>
+        <Css.LoginContainer>
+          <Css.FormComponent>
+            <input type="email" placeholder="Email"></input>
+            <input type="password" placeholder="Senha"></input>
+          </Css.FormComponent>
+        </Css.LoginContainer>  
+            <Css.Login>
+              <Css.LoginButton>Login</Css.LoginButton>
+              <p>
+                Não tem login?<b><a href="../home/index.jsx"> Registre-se</a></b>
+              </p>
+            </Css.Login>
         </Css.Form>
     </Css.Container>
   );
