@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import Flor from "../../img/flor.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -8,9 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 0 auto;
   width: auto;
-  background-image: src(${Flor});
   height: 100vh;
-  background-color: #2f973a;
+  background-color: white;
   font-family: 'Madimi One', sans-serif;
 `;
 
@@ -23,7 +21,7 @@ export const Textao = styled.h1`
   display: flex;
   align-items: center;
   font-style: bold;
-  color: white;
+  color: #2f973a;
   font-family: 'Madimi One', sans-serif;
 `;
 
@@ -41,16 +39,18 @@ export const InputContainer = styled.div`
   background-color: white;
   height: 40px;
   border-radius:8px;
+  color: #2f973a;
+  border-style: solid;
 input{
   border:none;
-  border-left: 1px solid #2f973a;;
+  border-left: 1px solid #2f973a;
   margin-left:10px;
   height: 20px;
   outline: none;
 }
 svg{
-  color:#2f973a;;
-  margin-left:15px;
+  color:#2f973a;
+  margin-left: 15px;
   height:30px;
 }
 ;
@@ -63,20 +63,20 @@ export const Login = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: #2f973a;
 
   a {
     text-decoration: none;
-    color: white;
+    color: #2f973a;
   }
   button:hover {
-    background-color: white;
+    background-color: #2f973a;
   }
 `;
 export const LoginButton = styled.button`
-  background-color: white;
+  background-color: #2f973a;
   border: none;
-  color: #2f973a;
+  color: white;
   padding: 1.5vh 7vh;
   text-align: center;
   text-decoration: none;
@@ -98,4 +98,4 @@ export const FormComponent = styled.div`
 export const LoginContainer = styled.div`
  display: flex;
  margin-top: 10vh;
-`
+`;
