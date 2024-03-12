@@ -1,6 +1,6 @@
 import * as Css from "./style";
 
-export default function Instruction() {
+export default function home() {
   return (
     <Css.Body>
         <Css.Back>99

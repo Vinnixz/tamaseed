@@ -43,13 +43,13 @@ export const InputContainer = styled.div`
   border-radius:8px;
 input{
   border:none;
-  border-left: 1px solid #2f973a;;
+  border-left: 1px solid #2f973a;
   margin-left:10px;
   height: 20px;
   outline: none;
 }
 svg{
-  color:#2f973a;;
+  color:#2f973a;
   margin-left:15px;
   height:30px;
 }

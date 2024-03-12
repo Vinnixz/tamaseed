@@ -66,14 +66,16 @@ export const Orientação = styled.div`
 
 export const Instruction1 = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 2vh;
   padding: 1vh;
   gap: 2vw;
   font-style: italic;
-  svg {
-    width: 4rem;
-    height: 4rem;
-  }
+svg{
+  width: 2rem;
+  height: 2rem;
+}
 `;
 
 export const NextButton = styled.button`
@@ -88,11 +90,12 @@ export const NextButton = styled.button`
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin: 4px 2px;
+  margin-top: 7rem;
   cursor: pointer;
   border-radius: 3vh;
   transition: background-color 0.5s ease;
-  position: absolute;
-  right: 5.4375rem;
-  top: 45.9375rem;
+  a{
+    text-decoration: none;
+    color: white;
+  }
 `;
