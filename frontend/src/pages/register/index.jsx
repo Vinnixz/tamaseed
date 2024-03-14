@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importe useNavigate
 import * as Css from "./style";
 import { FaKey } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
@@ -6,6 +7,8 @@ import logo from "../../img/logo.svg";
 import { MdEmail } from "react-icons/md";
 
 export default function Home() {
+  const navigate = useNavigate(); // useNavigate hook
+
   useEffect(() => {
     const handleSubmit = async (event) => {
       event.preventDefault(); 
@@ -20,7 +23,7 @@ export default function Home() {
   
       try {
         console.log(JSON.stringify(data));
-        const response = await fetch('http://localhost:8000/teste2', {
+        const response = await fetch('http://127.0.0.1:8000/registrar', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -30,11 +33,8 @@ export default function Home() {
   
         if (response.ok) {
           alert('Dados enviados com sucesso!');
-          // Verificar se o elemento ainda existe antes de tentar remover o event listener
-          const formulario = document.getElementById('formulario');
-          if (formulario) {
-            formulario.removeEventListener('submit', handleSubmit);
-          }
+          // Navegar para a página de registro após o login bem-sucedido
+          navigate('/');
         } else {
           alert('Erro ao enviar dados.');
         }
@@ -55,7 +55,7 @@ export default function Home() {
         formulario.removeEventListener('submit', handleSubmit);
       }
     };
-  }, []);
+  }, [navigate]); // Inclua navigate na lista de dependências
 
   return (
     <Css.Container>
@@ -94,7 +94,7 @@ export default function Home() {
           <p>
             Não tem login?
             <b>
-              <Link to="/"> Registre-se</Link>
+              <Link to="/Instruction"> Registre-se</Link>
             </b>
           </p>
         </Css.Login>

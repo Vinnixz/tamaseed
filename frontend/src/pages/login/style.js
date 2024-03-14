@@ -48,6 +48,9 @@ input{
   height: 20px;
   outline: none;
 }
+::placeholder{
+  padding-left: 1rem;
+}
 svg{
   color:#2f973a;;
   margin-left:15px;

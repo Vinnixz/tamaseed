@@ -23,3 +23,14 @@ export const Back = styled.div`
   border-radius: 20px;
   box-shadow: 3px 10px 15px 1px grey;
 `;
+
+export const BackTop = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 16vh;
+  padding: 2vh;
+`;

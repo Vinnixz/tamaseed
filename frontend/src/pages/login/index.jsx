@@ -4,8 +4,10 @@ import { FaKey } from "react-icons/fa6";
 import { Link } from 'react-router-dom'; 
 import { MdEmail } from "react-icons/md";
 import logo from "../../img/logo.svg";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
@@ -13,7 +15,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:8000/usuarios', {
+      const response = await fetch('http://127.0.0.1:8000/verifica_login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -22,15 +24,13 @@ export default function Login() {
       });
 
       const data = await response.json();
-
-      if (response.ok) {
-        if (data.usuario_existe) {
-          setLoginMessage('Login feito!');
-        } else {
-          setLoginMessage('Você não tem login.');
-        }
+      console.log('Mensagem do servidor:', data.message); 
+      setLoginMessage(data.message); // Exibe a mensagem de login do servidor
+      if (data.message === 'Login bem sucedido') {
+        console.log('Redirecionando para a página de instrução...');
+        navigate('/instruction');
       } else {
-        setError('Erro ao fazer login.');
+        setError('Email ou senha incorretos');
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
@@ -41,7 +41,7 @@ export default function Login() {
   return (
     <Css.Container>
       <Css.Logo> 
-        <img src={logo} alt="LogoTamagoseed"></img>
+        <img src={logo} alt="LogoTamagoseed" />
       </Css.Logo>
       
       <Css.Textao>Bem vindo Florzinha</Css.Textao>

@@ -1,7 +1,9 @@
+import React from 'react';
 import * as Css from "./style";
 import { FaCheckCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom'; 
 
-export default function Instruction() {
+export default function Instruction(){
   return (
     <Css.Body>
       <Css.Instruction>
@@ -27,7 +29,7 @@ export default function Instruction() {
             plantas para garantir uma experiência completa.
           </Css.Instruction1>
         </Css.Back>
-        <Css.NextButton>Próxima</Css.NextButton>
+        <Css.NextButton> <Link to="/home">Próxima</Link></Css.NextButton>
       </Css.Instruction>
     </Css.Body>
   );
