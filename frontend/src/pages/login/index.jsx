@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import * as Css from "./style";
 import { FaKey } from "react-icons/fa6";
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { MdEmail } from "react-icons/md";
 import logo from "../../img/logo.svg";
-import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const navigate = useNavigate();
