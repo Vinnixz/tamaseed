@@ -11,7 +11,6 @@ export default function Home() {
 
   useEffect(() => {
     const handleSubmit = async (event) => {
-      event.preventDefault(); 
   
       const data = {
         nome: document.getElementById('nome').value,

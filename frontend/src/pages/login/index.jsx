@@ -10,10 +10,8 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
-  const [loginMessage, setLoginMessage] = useState('');
 
-  const handleLogin = async () => {
-    try {
+  async function handleLogin() {
       const response = await fetch('http://127.0.0.1:8000/verifica_login', {
         method: 'POST',
         headers: {
@@ -23,18 +21,12 @@ export default function Login() {
       });
 
       const data = await response.json();
-      console.log('Mensagem do servidor:', data.message); 
-      setLoginMessage(data.message); // Exibe a mensagem de login do servidor
       if (data.message === 'Login bem sucedido') {
         console.log('Redirecionando para a página de instrução...');
         navigate('/instruction');
       } else {
         setError('Email ou senha incorretos');
       }
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      setError('Erro ao fazer login. Tente novamente mais tarde.');
-    }
   };
 
   return (
@@ -44,7 +36,6 @@ export default function Login() {
       </Css.Logo>
       
       <Css.Textao>Bem vindo Florzinha</Css.Textao>
-      <Css.Form>
         <Css.LoginContainer>
           <Css.FormComponent>
             <Css.InputContainer>
@@ -71,7 +62,6 @@ export default function Login() {
         </Css.LoginContainer>
         <Css.Login>
           <Css.LoginButton onClick={handleLogin}>Login</Css.LoginButton>
-          {loginMessage && <p>{loginMessage}</p>}
           {error && <p>{error}</p>}
           <p>
             Não tem login?
@@ -80,7 +70,6 @@ export default function Login() {
             </b>
           </p>
         </Css.Login>
-      </Css.Form>
     </Css.Container>
   );
 }
