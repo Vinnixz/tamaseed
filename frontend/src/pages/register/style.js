@@ -14,6 +14,8 @@ export const Container = styled.div`
 
 export const Logo = styled.div`
   display: flex;
+  margin-top: 10rem;
+  margin-bottom: 3rem;
 `;
 
 
@@ -47,6 +49,9 @@ input{
   height: 20px;
   outline: none;
 }
+::placeholder{
+  padding-left: 1rem;
+}
 svg{
   color:#2f973a;
   margin-left: 15px;
@@ -63,6 +68,7 @@ export const Login = styled.div`
   flex-direction: column;
   align-items: center;
   color: #2f973a;
+  margin-bottom: 3rem;
 
   a {
     text-decoration: none;
@@ -81,7 +87,7 @@ export const LoginButton = styled.button`
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 3rem;
   cursor: pointer;
   border-radius: 3vh;
   transition: background-color 0.5s ease;
@@ -91,7 +97,7 @@ export const FormComponent = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 1rem;
 `;
 
 export const LoginContainer = styled.div`
