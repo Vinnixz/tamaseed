@@ -77,7 +77,7 @@ export const Instruction1 = styled.div`
 `;
 
 export const NextButton = styled.button`
-  display: grid;
+  display: flex;
   background-color: var(--primary-color);
   border: none;
   color: white;
@@ -88,11 +88,11 @@ export const NextButton = styled.button`
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 3vh;
   transition: background-color 0.5s ease;
-  position: absolute;
-  right: 5.4375rem;
-  top: 45.9375rem;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `;

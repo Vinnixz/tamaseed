@@ -12,7 +12,7 @@ export default function Login() {
   const [error, setError] = useState('');
 
   async function handleLogin() {
-      const response = await fetch('http://127.0.0.1:8000/verifica_login', {
+      const response = await fetch('https://23ed-177-189-208-17.ngrok-free.app/verifica_login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

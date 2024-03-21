@@ -22,7 +22,7 @@ export default function Home() {
   
       try {
         console.log(JSON.stringify(data));
-        const response = await fetch('http://127.0.0.1:8000/registrar', {
+        const response = await fetch(' https://23ed-177-189-208-17.ngrok-free.app/registrar', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
