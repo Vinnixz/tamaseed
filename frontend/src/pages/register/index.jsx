@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { base_url } from "../../utils/consts";
 import { useNavigate } from 'react-router-dom'; // Importe useNavigate
 import * as Css from "./style";
 import { FaKey } from "react-icons/fa6";
@@ -22,7 +23,7 @@ export default function Home() {
   
       try {
         console.log(JSON.stringify(data));
-        const response = await fetch(' https://23ed-177-189-208-17.ngrok-free.app/registrar', {
+        const response = await fetch(`${base_url}/registrar`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
