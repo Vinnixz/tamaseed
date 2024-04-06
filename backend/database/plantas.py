@@ -3,7 +3,6 @@ import sqlite3
 def criar_tabela_plantas():
     conn = sqlite3.connect('plantas.db')
     cur = conn.cursor()
-
     cur.execute(
         '''CREATE TABLE IF NOT EXISTS plantas (
             id INTEGER PRIMARY KEY,
@@ -12,15 +11,16 @@ def criar_tabela_plantas():
             descricao TEXT NOT NULL,
             modo_plantio TEXT,
             materiais TEXT,
-            modo_fazer TEXT)''')
+            modo_fazer TEXT, 
+            image_url TEXT)''')
     conn.commit()
     conn.close()
 
-def inserir_planta(nome_comum, tipo, descricao, modo_plantio=None, materiais=None, modo_fazer=None):
-    conn = sqlite3.connect('plantas.db')  # Corrigido para 'plantas.db'
+def inserir_planta(nome_comum, tipo, descricao, modo_plantio=None, materiais=None, modo_fazer=None, image_url=None):
+    conn = sqlite3.connect('plantas.db')
     cur = conn.cursor()
-    cur.execute("INSERT INTO plantas (nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer) VALUES (?, ?, ?, ?, ?, ?)",
-                (nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer))
+    cur.execute("INSERT INTO plantas (nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer, image_url) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                (nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer, image_url))
     conn.commit()
     conn.close()
 
@@ -39,3 +39,11 @@ def obter_plantas():
     plantas = cur.fetchall()
     conn.close()
     return plantas
+
+def update_plant_image_url(conn: sqlite3.Connection, nome_comum: str, image_url: str):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM plants WHERE nome_comum=?", (nome_comum,))
+    plant = cur.fetchone()
+    if plant is not None:
+        cur.execute("UPDATE plants SET image_url=? WHERE nome_comum=?", (image_url, nome_comum))
+        conn.commit()

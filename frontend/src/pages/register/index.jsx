@@ -8,7 +8,7 @@ import logo from "../../img/logo.svg";
 import { MdEmail } from "react-icons/md";
 
 export default function Home() {
-  const navigate = useNavigate(); // useNavigate hook
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const handleSubmit = async (event) => {
@@ -33,7 +33,6 @@ export default function Home() {
   
         if (response.ok) {
           alert('Dados enviados com sucesso!');
-          // Navegar para a página de registro após o login bem-sucedido
           navigate('/');
         } else {
           alert('Erro ao enviar dados.');
@@ -48,14 +47,13 @@ export default function Home() {
       formulario.addEventListener('submit', handleSubmit);
     }
   
-    // Remover event listener quando o componente for desmontado
     return () => {
       const formulario = document.getElementById('formulario');
       if (formulario) {
         formulario.removeEventListener('submit', handleSubmit);
       }
     };
-  }, [navigate]); // Inclua navigate na lista de dependências
+  }, [navigate]);
 
   return (
     <Css.Container>

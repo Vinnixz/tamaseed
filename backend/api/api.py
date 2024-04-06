@@ -76,12 +76,12 @@ def login():
         return jsonify({"erro": "Email ou senha incorretos"}), 401
     except Exception as e:
         return jsonify({"erro": f"Erro ao fazer login: {str(e)}"}), 500
+    
 @app.route('/criar_tabela_plantas', methods=['GET'])
 def rota_criar_tabela_plantas():
     criar_tabela_plantas()
     return jsonify({"mensagem": "Tabela de plantas criada com sucesso"}), 200
 
-# Rota para inserir uma nova planta
 @app.route('/inserir_planta', methods=['POST'])
 def rota_inserir_planta():
     dados = request.json
@@ -94,7 +94,6 @@ def rota_inserir_planta():
     inserir_planta(nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer)
     return jsonify({"mensagem": "Planta inserida com sucesso"}), 201
 
-# Rota para obter todas as plantas cadastradas
 @app.route('/plantas', methods=['GET'])
 def rota_obter_plantas():
     plantas = obter_plantas()
