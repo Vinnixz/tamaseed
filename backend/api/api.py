@@ -82,18 +82,6 @@ def rota_criar_tabela_plantas():
     criar_tabela_plantas()
     return jsonify({"mensagem": "Tabela de plantas criada com sucesso"}), 200
 
-@app.route('/inserir_planta', methods=['POST'])
-def rota_inserir_planta():
-    dados = request.json
-    nome_comum = dados.get('nome_comum')
-    tipo = dados.get('tipo')
-    descricao = dados.get('descricao')
-    modo_plantio = dados.get('modo_plantio')
-    materiais = dados.get('materiais')
-    modo_fazer = dados.get('modo_fazer')
-    inserir_planta(nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer)
-    return jsonify({"mensagem": "Planta inserida com sucesso"}), 201
-
 @app.route('/plantas', methods=['GET'])
 def rota_obter_plantas():
     plantas = obter_plantas()
@@ -128,6 +116,45 @@ def rota_obter_planta(nome_comum):
         return jsonify({"planta": planta_formatada}), 200
     else:
         return jsonify({"erro": "Planta não encontrada"}), 404
+
+@app.route('/inserir_planta', methods=['POST'])
+def rota_inserir_planta():
+    try:
+        dados = request.json
+        nome_comum = dados.get('nome_comum')
+        tipo = dados.get('tipo')
+        descricao = dados.get('descricao')
+        modo_plantio = dados.get('modo_plantio')
+        materiais = dados.get('materiais')
+        modo_fazer = dados.get('modo_fazer')
+        image_url = dados.get('image_url')
+        
+#         exemplo json pra enviar planta:
+#         {
+#   "nome_comum": "Nome da planta",
+#   "tipo": "Tipo da planta",
+#   "descricao": "Descrição da planta",
+#   "modo_plantio": "Modo de plantio da planta",
+#   "materiais": "Materiais necessários para plantar",
+#   "modo_fazer": "Modo de fazer algo",
+#   "image_url": "URL_da_imagem_da_planta"
+# }
+        # Verificar se a URL da imagem é válida
+        if not image_url or not allowed_file(image_url):
+            return jsonify({"erro": "URL da imagem inválida"}), 400
+
+        # Salvar a imagem localmente
+        filename = secure_filename(image_url.rsplit('/', 1)[-1])
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        request.urlretrieve(image_url, image_path)
+
+        # Atualizar a URL da imagem para o caminho local
+        image_url = image_path
+
+        inserir_planta(nome_comum, tipo, descricao, modo_plantio, materiais, modo_fazer, image_url)
+        return jsonify({"mensagem": "Planta inserida com sucesso"}), 201
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao inserir a planta: {str(e)}"}), 500
 
 def generate_salt():
     return os.urandom(16).hex()
