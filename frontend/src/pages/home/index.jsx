@@ -10,19 +10,9 @@ export default function Search() {
   const [search, setSearch] = useState("");
   const [filteredSeeds, setFilteredSeeds] = useState([]);
 
-  useEffect(() => {
-    const getDataSeeds = async () => {
-      const response = await getSeeds();
-      setSeeds(response.plantas);
-      setFilteredSeeds(response.plantas);
-    };
-    getDataSeeds();
-  }, []);
-
   const handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase();
     setSearch(searchTerm);
-    
     if (searchTerm === "") {
       setFilteredSeeds(seeds);
     } else {
@@ -31,8 +21,15 @@ export default function Search() {
       });
       setFilteredSeeds(filteredSeeds);
     }
-  }
-
+  };
+  useEffect(() => {
+    const getDataSeeds = async () => {
+      const response = await getSeeds();
+      setSeeds(response.plantas);
+      setFilteredSeeds(response.plantas);
+    };
+    getDataSeeds();
+  }, []);
   return (
     <Css.Container>
       <Css.Body>
@@ -58,19 +55,18 @@ export default function Search() {
           <Css.Line />
         </Css.Formulario>
         <Css.SeedContent>
-          {
-            filteredSeeds.map((seed) => (
-              <Css.SeedCard key={seed.id}>
-                <Css.SeedImage>
-                  <img src={seed.image} alt={seed.name} />
-                  <img src={alface} alt={seed.name} />
-                  <Css.SeedInfo>
-                    <h1>{seed.nome_comum}</h1>
-                    <button>DETALHES</button>
-                  </Css.SeedInfo>
-                </Css.SeedImage>
-              </Css.SeedCard>
-            ))}
+          {filteredSeeds.map((seed) => (
+            <Css.SeedCard key={seed.id}>
+              <Css.SeedImage>
+                <img src={seed.image} alt={seed.name} />
+                <img src={alface} alt={seed.name} />
+                <Css.SeedInfo>
+                  <h1>{seed.nome_comum}</h1>
+                  <button>DETALHES</button>
+                </Css.SeedInfo>
+              </Css.SeedImage>
+            </Css.SeedCard>
+          ))}
         </Css.SeedContent>
       </Css.Body>
     </Css.Container>
