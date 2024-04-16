@@ -1,10 +1,13 @@
 import "./App.css";
+import { SeedProvider } from "./context/seedContext.jsx";
 import Router from "./router.js";
 
 function App() {
   return (
     <div>
-      < Router/>
+      <SeedProvider>
+        <Router/>
+      </SeedProvider>
     </div>
   );
 }

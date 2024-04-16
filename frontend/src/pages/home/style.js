@@ -35,7 +35,6 @@ export const Top = styled.div`
   justify-content: center;
   background-color: green;
   width: 100%;
-  height: 25vh;
 `;
 
 export const Formulario = styled.form`
