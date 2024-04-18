@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { getSeeds } from '../api';
-
 const SeedContext = createContext();
 
 const SeedProvider = ({ children }) => {

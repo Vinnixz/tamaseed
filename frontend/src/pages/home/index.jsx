@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import * as Css from "./style";
 import logo from "../../img/logo.svg";
 import { FaSearch } from "react-icons/fa";
-import alface from "../../img/alface.png";
+import alface from "../../img/sementes/alface.png";
 import { SeedContext } from "../../context/seedContext";
 import { useContext } from "react";
 import Info from "../info";
