@@ -1,59 +1,35 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const InfoHeader = styled.div`
-    margin: 1.5rem 0;
-    h2{
-        text-align: center;
-        font-size: 16px;
-    }
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  svg {
+    color: #07730b;
+  }
+  h2 {
+    text-align: center;
+    font-size: 16px;
+  }
+  img {
+    border-radius: 53%;
+    width: 26%;
+    height: 100px;
+    margin: 1rem auto;
+  }
+`;
+export const Info = styled.div`
+  background-color: #f4f4f4;
+  border-radius: 2rem 2rem 0 0;
+  .slick-arrow.slick-next{
+    display: none!important;
+  }
 `
-export const InfoBodyGrid = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
-
-export const InfoButton = styled.div`
-    display: flex;
-    align-items: center;
-    p{
-        font-weight: bold;
-        font-size: 12px;
-    }
-`
-export const InfoBody = styled.div`
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-`
-export const ButtonGo = styled.button`
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    svg{
-        width: 100%;
-        height: 22px;
-    }
-`
-
-export const InfoCare = styled.div`
-    padding: 1rem;
-    border: 1px solid #f0f0f0;
-    margin: 2rem;
-    border-radius: 4px;
-    p{
-        font-size: 12px;
-    }
-`
-export const Ballon = styled.div`
-    background-color: #6EEF7B;
-    padding: 0.8rem;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-    svg{
-        width: 100%;
-        height: 22px;
-        color: #1F5014;
-    }
-`
+export const InfoSeed = styled.div`
+  padding: 1rem;
+  h2 {
+    text-align: center;
+    margin: 1rem 1rem;
+    color: var(--secondary-color);
+  }
+`;

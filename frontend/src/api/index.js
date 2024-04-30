@@ -13,3 +13,16 @@ export const getSeeds = async () => {
   });
   return response.json();
 }
+
+export const login = async (email, senha) => {
+  const response = await fetch(`${apiUrl}/verifica_login`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': "69420",
+        "Access-Control-Allow-Origin": "*"
+    },
+    body: JSON.stringify({ email, senha })
+});
+return response;
+}

@@ -5,6 +5,7 @@ import { FaKey } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom'; 
 import { MdEmail } from "react-icons/md";
 import logo from "../../img/logo.svg";
+import { login } from '../../api';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -13,33 +14,20 @@ export default function Login() {
   const [error, setError] = useState('');
 
   async function handleLogin() {
-    try {
-        const response = await fetch(`${apiUrl}/verifica_login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'ngrok-skip-browser-warning': "69420",
-                "Access-Control-Allow-Origin": "*"
-            },
-            body: JSON.stringify({ email, senha })
-        });
-
-        const status = response.status;
-
-        if (status === 200) {
-            console.log('Redirecionando para a página de instrução...');
-            navigate('/instruction');
-        } else if (status === 401) {
-            setError('Email ou senha incorretos');
-        } else if (status === 500) {
-            setError('Erro interno do servidor. Tente novamente mais tarde.');
-        } else {
-            setError('Erro desconhecido. Tente novamente mais tarde.');
-        }
-    } catch (error) {
-        setError('Erro ao processar a solicitação. Verifique sua conexão com a internet.');
-    }
-};
+      const response = await login(email, senha);
+      const status = response.status;
+      
+      if (status === 200) {
+        navigate('/instruction');
+      } else if (status === 401) {
+        setError('Email ou senha incorretos');
+      } else if (status === 500) {
+        setError('Erro interno do servidor. Tente novamente mais tarde.');
+      } else {
+        setError('Erro desconhecido. Tente novamente mais tarde.');
+      }
+      setError('Erro ao processar a solicitação. Verifique sua conexão com a internet.');
+  }
 
   return (
     <Css.Container>

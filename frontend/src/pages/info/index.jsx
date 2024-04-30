@@ -1,58 +1,49 @@
 import React, { useContext } from "react";
-import { SeedContext } from "../../context/seedContext";
 import * as Css from "./style";
 import { Body, Container, Logo, Top } from "../home/style";
-import { Link } from "react-router-dom";
 import logo from "../../img/logo.svg";
-import { IoDocumentText } from "react-icons/io5";
-import { GoAlertFill } from "react-icons/go";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import Slider from "react-slick";
+import alface from "../../img/sementes/alface.png";
+import { IoMdHeart } from "react-icons/io";
+import { RiBubbleChartFill } from "react-icons/ri";
 
 export default function Info(props) {
-  const seeds = useContext(SeedContext);
-  const infoSeed = seeds.find((seed) => seed.nome_comum === props.seedName);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+  
   return (
-    <Container>
-      <Body>
-        <Top>
-          <Logo>
-            <img src={logo} alt="LogoTamagoseed" />
-          </Logo>
-        </Top>
-        <Css.InfoHeader>
-          <h2>Aprenda a como cuidar da sua {infoSeed.nome_comum}</h2>
-          <Css.InfoCare>
-            <p>
-              Aqui você aprendera os cuidados básicos da sua plantinha, temos
-              dicas, instruções e cuidados ideais
-            </p>
-          </Css.InfoCare>
-        </Css.InfoHeader>
-        <Css.InfoBody>
-          <Css.InfoBodyGrid>
-            <Css.InfoButton>
-              <Css.Ballon>
-                <IoDocumentText />
-              </Css.Ballon>
-              <p>Aprenda como cuidar</p>
-            </Css.InfoButton>
-            <Css.ButtonGo>
-              <FaArrowAltCircleRight />
-            </Css.ButtonGo>
-          </Css.InfoBodyGrid>
-          <Css.InfoBodyGrid>
-            <Css.InfoButton>
-              <Css.Ballon>
-                <GoAlertFill />  
-              </Css.Ballon>
-              <p>Cuidados com a planta</p>
-            </Css.InfoButton>
-            <Css.ButtonGo>
-              <FaArrowAltCircleRight />
-            </Css.ButtonGo>
-          </Css.InfoBodyGrid>
-        </Css.InfoBody>
-      </Body>
-    </Container>
+    <>
+      <Top>
+        <Logo>
+          <img src={logo} alt="LogoTamagoseed" />
+        </Logo>
+      </Top>
+      <Css.InfoHeader>
+        <h2>Aprenda como cuidar da sua {props.seedName} <IoMdHeart /></h2>
+        <img src={alface} />
+      </Css.InfoHeader>
+      <Css.Info>
+      <Slider {...settings}>
+        <Css.InfoSeed>
+          <h2>Descrição da semente</h2>
+          <p><RiBubbleChartFill /> {props.seedDescription}</p>
+        </Css.InfoSeed>
+        <Css.InfoSeed>
+          <h2>Como cuidar</h2>
+          <p><RiBubbleChartFill /> {props.seedCare}</p>
+        </Css.InfoSeed>
+        <Css.InfoSeed>
+          <h2>Materias precisos</h2>
+          <p><RiBubbleChartFill /> {props.seedMaterial}</p>
+        </Css.InfoSeed>
+      </Slider>
+
+      </Css.Info>
+    </>
   );
 }

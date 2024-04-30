@@ -1,14 +1,16 @@
 import React, { createContext, useEffect, useState } from "react";
 import * as Css from "./style";
 import logo from "../../img/logo.svg";
-import { FaSearch } from "react-icons/fa";
-import alface from "../../img/sementes/alface.png";
+import { FaSearch, FaSeedling } from "react-icons/fa";
+import alface from "../../img/tomate.png";
 import { SeedContext } from "../../context/seedContext";
 import { useContext } from "react";
 import Info from "../info";
+import { LiaSeedlingSolid } from "react-icons/lia";
 
 export default function Search() {
   const seeds = useContext(SeedContext);
+  console.log(seeds, "dssdsd");
   const [search, setSearch] = useState("");
   const [filteredSeeds, setFilteredSeeds] = useState([]);
   const [infoSeed, setInfoSeed] = useState({});
@@ -26,8 +28,9 @@ export default function Search() {
     }
   };
 
-  const handleShowSeed = (seed) => {
-    setInfoSeed(filteredSeeds.find((item) => item.nome_comum === seed));
+const handleShowSeed = (seed) => {
+    const selectedSeed = filteredSeeds.find((item) => item.nome_comum === seed);
+    setInfoSeed(selectedSeed);
   };
 
   useEffect(() => {
@@ -37,7 +40,8 @@ export default function Search() {
   return (
     <>
       {infoSeed && Object.keys(infoSeed).length !== 0 ? (
-        <Info seedName={infoSeed.nome_comum} />
+       <Info seedName={infoSeed.nome_comum} seedDescription={infoSeed.descricao} seedCare={infoSeed.modo_plantio} seedMaterial={infoSeed.materiais}/>
+
       ) : (
         <Css.Container>
           <Css.Body>
@@ -48,7 +52,7 @@ export default function Search() {
             </Css.Top>
             <Css.Formulario>
               <Css.TitleSearch>
-                <h1> Qual planta você está cuidando?</h1>
+                <h1> Qual planta você está cuidando?<FaSeedling /></h1>
               </Css.TitleSearch>
               <Css.FormComponent>
                 <FaSearch />
@@ -65,12 +69,12 @@ export default function Search() {
               {filteredSeeds.map((seed) => (
                 <Css.SeedCard key={seed.id}>
                   <Css.SeedImage>
-                    <img src={seed.image} alt={seed.name} />
+                    {/* <img src={seed.image} alt={seed.name} /> */}
                     <img src={alface} alt={seed.name} />
                     <Css.SeedInfo>
-                      <h1>{seed.nome_comum}</h1>
-                      <button onClick={() => handleShowSeed(seed.nome_comum)}>
-                        DETALHES
+                      <h1><LiaSeedlingSolid />{seed.nome_comum}</h1>
+                      <button onClick={() => handleShowSeed(seed.nome_comum, seed.descricao, seed.modo_plantio, seed.materiais)}>
+                        Ver detalhes
                       </button>
                     </Css.SeedInfo>
                   </Css.SeedImage>
