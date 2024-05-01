@@ -25,7 +25,7 @@ export default function Info(props) {
       </Top>
       <Css.InfoHeader>
         <h2>Aprenda como cuidar da sua {props.seedName} <IoMdHeart /></h2>
-        <img src={alface} />
+        <img src={props.image_url} />
       </Css.InfoHeader>
       <Css.Info>
       <Slider {...settings}>
