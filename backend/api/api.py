@@ -94,7 +94,8 @@ def rota_obter_plantas():
             "descricao": planta[3],
             "modo_plantio": planta[4],
             "materiais": planta[5],
-            "modo_fazer": planta[6]
+            "modo_fazer": planta[6],
+            "image_url": planta[7]
         }
         plantas_formatadas.append(planta_formatada)
     return jsonify({"plantas": plantas_formatadas}), 200
@@ -111,7 +112,8 @@ def rota_obter_planta(nome_comum):
             "descricao": planta[3],
             "modo_plantio": planta[4],
             "materiais": planta[5],
-            "modo_fazer": planta[6]
+            "modo_fazer": planta[6],
+            "image_url": planta[7]
         }
         return jsonify({"planta": planta_formatada}), 200
     else:
