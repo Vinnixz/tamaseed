@@ -5,6 +5,8 @@ import Register from "./pages/register";
 import Instruction from "./pages/instruction";
 import Home from "./pages/home";
 import Search from "./pages/search";
+import Info from "./pages/info";
+import InfoSeeds from "./pages/description";
 
 export default function Router() {
   return (
@@ -15,6 +17,8 @@ export default function Router() {
         <Route path="/instruction" element={<Instruction />} />
         <Route path="/home" element={<Home />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/info" element={<Info />} />
+        <Route path="/infoSeeds" element={<InfoSeeds />} />
       </Routes>
     </BrowserRouter>
   );

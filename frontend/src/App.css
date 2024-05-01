@@ -6,7 +6,8 @@
     box-sizing: border-box;
 }
 :root{
-    --primary-color: rgba(47, 151, 58, 1)
+    --primary-color: rgba(47, 151, 58, 1);
+    --secondary-color: rgba(47, 151, 58, 1);
 }
 body{
     display: contents;

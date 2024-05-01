@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { apiUrl } from "../../utils/consts";
 import * as Css from "./style";
 import { FaKey } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom'; 
 import { MdEmail } from "react-icons/md";
 import logo from "../../img/logo.svg";
+import { login } from '../../api';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -12,22 +14,20 @@ export default function Login() {
   const [error, setError] = useState('');
 
   async function handleLogin() {
-      const response = await fetch('https://23ed-177-189-208-17.ngrok-free.app/verifica_login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, senha })
-      });
-
-      const data = await response.json();
-      if (data.message === 'Login bem sucedido') {
-        console.log('Redirecionando para a página de instrução...');
+      const response = await login(email, senha);
+      const status = response.status;
+      
+      if (status === 200) {
         navigate('/instruction');
-      } else {
+      } else if (status === 401) {
         setError('Email ou senha incorretos');
+      } else if (status === 500) {
+        setError('Erro interno do servidor. Tente novamente mais tarde.');
+      } else {
+        setError('Erro desconhecido. Tente novamente mais tarde.');
       }
-  };
+      setError('Erro ao processar a solicitação. Verifique sua conexão com a internet.');
+  }
 
   return (
     <Css.Container>
