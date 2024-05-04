@@ -10,7 +10,6 @@ import { LiaSeedlingSolid } from "react-icons/lia";
 
 export default function Search() {
   const seeds = useContext(SeedContext);
-  console.log(seeds, "dssdsd");
   const [search, setSearch] = useState("");
   const [filteredSeeds, setFilteredSeeds] = useState([]);
   const [infoSeed, setInfoSeed] = useState({});
@@ -70,7 +69,7 @@ const handleShowSeed = (seed) => {
                 <Css.SeedCard key={seed.id}>
                   <Css.SeedImage>
                     {/* <img src={seed.image} alt={seed.name} /> */}
-                    <img src={alface} alt={seed.name} />
+                    <img src={seed.image_url} alt={seed.name} />
                     <Css.SeedInfo>
                       <h1><LiaSeedlingSolid />{seed.nome_comum}</h1>
                       <button onClick={() => handleShowSeed(seed.nome_comum, seed.descricao, seed.modo_plantio, seed.materiais)}>
