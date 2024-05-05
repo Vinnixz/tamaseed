@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 import * as Css from "./style";
 import logo from "../../img/logo.svg";
 import { FaSearch, FaSeedling } from "react-icons/fa";
-import alface from "../../img/tomate.png";
 import { SeedContext } from "../../context/seedContext";
 import { useContext } from "react";
 import Info from "../info";
@@ -39,7 +38,7 @@ const handleShowSeed = (seed) => {
   return (
     <>
       {infoSeed && Object.keys(infoSeed).length !== 0 ? (
-       <Info seedName={infoSeed.nome_comum} seedDescription={infoSeed.descricao} seedCare={infoSeed.modo_plantio} seedMaterial={infoSeed.materiais}/>
+       <Info seedName={infoSeed.nome_comum} seedDescription={infoSeed.descricao} seedCare={infoSeed.modo_fazer} seedMaterial={infoSeed.materiais}/>
 
       ) : (
         <Css.Container>

@@ -1,4 +1,5 @@
-import { Body, Container, Logo, Top } from "../home/style";
+import { Body, Container, Logo } from "../home/style";
+import * as Css from "./style";
 import logo from "../../img/logo.svg";
 import { SeedContext } from "../../context/seedContext";
 import { useContext } from "react";
@@ -8,22 +9,19 @@ export default function InfoSeeds(props) {
   const infoSeed = seeds.find((seed) => seed.nome_comum === props.seedName);
 
   return (
-    <Container>
-      <Body>
-        <Top>
-          <Logo>
+    <Css.Container>
+      <Css.Body>
+        <Css.Top>
+          <Css.Logo>
             <img src={logo} alt="LogoTamagoseed" />
-          </Logo>
+          </Css.Logo>
           <h1>{infoSeed.nome_comum}</h1>
-          <div>
-            <h2>Descrição da semente</h2>
-          </div>
           <div>
             <h2>Descrição da semente</h2>
             <p>{infoSeed.nome_comum}</p>
           </div>
-        </Top>
-      </Body>
-    </Container>
+        </Css.Top>
+      </Css.Body>
+    </Css.Container>
   );
 }
