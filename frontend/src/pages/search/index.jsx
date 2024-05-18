@@ -8,6 +8,7 @@ export default function Search(){
           <Css.Logo> 
             <img src={logo} alt="LogoTamagoseed" />
           </Css.Logo>
+          <h1>Documentacao</h1>
       </Css.Body>
     );
 }

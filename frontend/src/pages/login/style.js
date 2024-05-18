@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
-  width: auto;
+  width: 100%;
   background-image: src(${Flor});
   height: 100vh;
   background-color: #2f973a;
@@ -25,6 +25,7 @@ export const Textao = styled.h1`
   font-style: bold;
   color: white;
   font-family: 'Madimi One', sans-serif;
+  text-align: center;
 `;
 
 export const Form = styled.form`

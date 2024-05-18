@@ -90,9 +90,9 @@ export default function Home() {
         <Css.Login>
           <Css.LoginButton type="submit">Login</Css.LoginButton>
           <p>
-            Não tem login?
+            Já se cadastrou? 
             <b>
-              <Link to="/Instruction"> Registre-se</Link>
+              <Link to="/"> Logue aqui</Link>
             </b>
           </p>
         </Css.Login>

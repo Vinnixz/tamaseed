@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import * as Css from "./style";
-import { Body, Container, Logo, Top } from "../home/style";
+import { Logo, Top } from "../home/style";
 import logo from "../../img/logo.svg";
 import Slider from "react-slick";
-import alface from "../../img/sementes/alface.png";
 import { IoMdHeart } from "react-icons/io";
 import { RiBubbleChartFill } from "react-icons/ri";
+
 
 export default function Info(props) {
   const settings = {
@@ -25,7 +25,9 @@ export default function Info(props) {
       </Top>
       <Css.InfoHeader>
         <h2>Aprenda como cuidar da sua {props.seedName} <IoMdHeart /></h2>
-        <img src={props.image_url} />
+        <Css.SeedImage>
+                    <img src={props.image_url} alt={props.name} />
+                  </Css.SeedImage>
       </Css.InfoHeader>
       <Css.Info>
       <Slider {...settings}>
@@ -34,7 +36,7 @@ export default function Info(props) {
           <p><RiBubbleChartFill /> {props.seedDescription}</p>
         </Css.InfoSeed>
         <Css.InfoSeed>
-          <h2>Como cuidar</h2>
+          <h2>Como fazer?</h2>
           <p><RiBubbleChartFill /> {props.seedCare}</p>
         </Css.InfoSeed>
         <Css.InfoSeed>
