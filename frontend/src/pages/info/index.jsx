@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import { IoMdHeart } from "react-icons/io";
 import { RiBubbleChartFill } from "react-icons/ri";
 
-
 export default function Info(props) {
   const settings = {
     dots: true,
