@@ -33,3 +33,15 @@ export const InfoSeed = styled.div`
     color: var(--secondary-color);
   }
 `;
+
+export const SeedImage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;

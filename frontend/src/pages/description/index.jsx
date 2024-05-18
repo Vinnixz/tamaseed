@@ -1,4 +1,3 @@
-import { Body, Container, Logo } from "../home/style";
 import * as Css from "./style";
 import logo from "../../img/logo.svg";
 import { SeedContext } from "../../context/seedContext";

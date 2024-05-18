@@ -1,10 +1,11 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Css from "./style";
 import logo from "../../img/logo.svg";
 import { FaSearch, FaSeedling } from "react-icons/fa";
 import { SeedContext } from "../../context/seedContext";
 import { useContext } from "react";
 import Info from "../info";
+import { Link } from "react-router-dom"; // Importe o Link do React Router
 import { LiaSeedlingSolid } from "react-icons/lia";
 
 export default function Search() {
@@ -26,7 +27,7 @@ export default function Search() {
     }
   };
 
-const handleShowSeed = (seed) => {
+  const handleShowSeed = (seed) => {
     const selectedSeed = filteredSeeds.find((item) => item.nome_comum === seed);
     setInfoSeed(selectedSeed);
   };
@@ -44,8 +45,11 @@ const handleShowSeed = (seed) => {
         <Css.Container>
           <Css.Body>
             <Css.Top>
+              {/* Envolve o logo em um Link */}
               <Css.Logo>
-                <img src={logo} alt="LogoTamagoseed" />
+                <Link to="/search" style={{ textDecoration: 'none', color: 'transparent' }}>
+                  <img src={logo} alt="LogoTamagoseed" />
+                </Link>
               </Css.Logo>
             </Css.Top>
             <Css.Formulario>

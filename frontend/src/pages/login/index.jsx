@@ -35,7 +35,7 @@ export default function Login() {
         <img src={logo} alt="LogoTamagoseed" />
       </Css.Logo>
       
-      <Css.Textao>Bem vindo Florzinha</Css.Textao>
+      <Css.Textao>Bem vindo ao Tamagoseed</Css.Textao>
         <Css.LoginContainer>
           <Css.FormComponent>
             <Css.InputContainer>
