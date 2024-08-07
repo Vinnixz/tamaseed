@@ -14,7 +14,7 @@ def inserir_plantas_from_json(json_file):
             modo_fazer = '\n'.join(modo_fazer_data) if isinstance(modo_fazer_data, list) else modo_fazer_data
         
             materiais = ', '.join(planta_info['modo_plantio'].get('materiais', []))
-            image_url = ', '.join(planta_info.get('image_url', []))  # Transforma a lista de URLs em uma string
+            image_url = ', '.join(planta_info.get('image_url', [])) 
             try:
                 inserir_planta(nome_comum, tipo, descricao, modo_plantio='', materiais=materiais, modo_fazer=modo_fazer, image_url=image_url)
                 print(f"Planta '{nome_comum}' inserida com sucesso.")
