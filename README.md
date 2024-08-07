@@ -1,6 +1,7 @@
 # Projeto Florzinha
 
-Bem-vindo ao **Projeto Florzinha**! Este é um aplicativo projetado para te ajudar a cuidar das suas plantas. <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzV0am1xdnMyOG15ZGhkczQ3ZmhncXRhZm92dW1hYmIyeGJtbTB6MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XSTtrAN0rJfy/giphy.gif" alt="Florzinha" width="100" height="100">
+Bem-vindo ao **Projeto Florzinha**! Este é um aplicativo projetado para te ajudar a cuidar das suas plantas. <br>
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzV0am1xdnMyOG15ZGhkczQ3ZmhncXRhZm92dW1hYmIyeGJtbTB6MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XSTtrAN0rJfy/giphy.gif" alt="Florzinha" width="100" height="100">
 
 ## Como Funciona
 
@@ -28,20 +29,13 @@ A API é responsável por:
 
 Aqui estão algumas capturas de tela do aplicativo para te dar uma ideia de como ele se parece:
 
-![Tela Principal](img/login.png)
-*Tela principal do aplicativo.*
-
-![Tela de Bem Vindo](img/welcome.png)
-*Tela de bem vindo.*
-
-![Tela de Busca](img/search.png)
-*Tela de busca do aplicativo.*
-
-![Tela de Detalhes da Planta](img/description.png)
-*Detalhes de uma planta específica.*
-
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="img/login.png" alt="Tela Principal" width="200" />
+  <img src="img/welcome.png" alt="Tela de Bem Vindo" width="200" />
+  <img src="img/search.png" alt="Tela de Busca" width="200" />
+  <img src="img/description.png" alt="Tela de Detalhes da Planta" width="200" />
+</div>
 
 ## Suporte
 
 Se tiver dúvidas ou problemas, pergunte ao responsável pelo projeto.
-
